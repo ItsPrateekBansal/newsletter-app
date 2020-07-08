@@ -44,10 +44,18 @@ app.post("/",function(req,res){
     {
       res.sendFile(__dirname+"/success.html");
     }
+    else
+    {
+      res.sendFile(__dirname+"/failure.html")
+    }
   })
   request.write(jsonData);
   request.end();
 
+})
+
+app.post("/failure",function(req,res){
+  res.redirect("/");
 })
 
 app.listen(process.env.PORT || 3000, (req, res) => {
